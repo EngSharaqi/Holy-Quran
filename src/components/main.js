@@ -4,9 +4,7 @@ import './main.css';
 
 class Main extends Component {
     state = {
-        fullSurah: [],
-        picNum: 1,
-        handlePickSurah: []
+        fullSurah: []
     }
    
     /*
@@ -34,67 +32,33 @@ class Main extends Component {
     
     componentDidMount = () => {
         
-        axios.get("http://api.alquran.cloud/v1/quran/quran-uthmani")
+        axios.get("http://api.alquran.cloud/v1/surah/114")
         .then(res => {
             this.setState({
-                fullSurah: res.data.data.surahs,
-                text: aya => aya.text
+                fullSurah: res.data.data.ayahs
             }); 
-
+            // hizbQuarter: 1
+            // juz: 1
+            // manzil: 1
+            // number: 1
+            // numberInSurah: 1
+            // page: 1
+            // ruku: 1
+            // sajda: false
+            // text: "﻿بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+            // this.state.fullSurah.map( name => console.log(name.text))
             
-            var surahName = [];
-            
-            this.state.fullSurah.map( name => {
-                this.state.handlePickSurah.push(name.name);
-                
-            })
-            console.log(surahName.indexOf("سُورَةُ ٱلْفَاتِحَةِ")+1);
-            
-            // var handlePickSurah = ()=>{
-            //     return console.log(document.getElementsByTagName("button").innerHTML);
-            //     // console.log(surahName.indexOf(document.getElementsByTagName("button").innerHTML)+1);
-            // }
-
-            // surahName.forEach((el, l)=>{
-            //     console.log(`${l} => ${el}`)
-            // })
-            //  
-            //  
-            // this.state.fullSurah.map(name => console.log(name.text))
-            // this.state.fullSurah.map(name => console.log(name.text_imlaei))
-            // this.state.fullSurah.map(name => name.ayahs.map( aya => console.log(aya.text))
-            // this.state.fullSurah.map(name => {name.ayahs.map(aya => console.log(aya.text))})
         });
 
-        
-        // this.state.fullSurah.map(name => console.log(name.text))
-
     }
-    handlePic = (e) =>{
-        // console.log(e.target.value)
-        this.setState({
-
-        })
-        console.log(this.state.handlePickSurah.indexOf(e.target.value)+1)
-    }
+   
     render (){
         return (
         <div className="texts">
-{/* this.state.fullSurah.map(name => {name.ayahs.map(aya => console.log(aya.text))}) */}
-
             <div>
-                {/* {this.state.fullSurah.map( name => <div><button id= "2" onKeyPress={this.handlePic} type="submit">{name.name}</button> </div>) } */}
-
-                {this.state.fullSurah.map( name => <div><input id= "2" onClick={this.handlePic} type="submit" value = {name.name} /> </div>) }
-                
-
-
+                <p>{ this.state.fullSurah.map( text => <span><span> {text.text} </span> <span> ({text.numberInSurah}) </span></span>) }</p>
             </div>
-                {/* {this.state.fullSurah.map( name => <span> <span>{name.page_number}</span> <span> {name.text_imlaei} </span> <span> ({(name.verse_key).slice(2, name.verse_key.length)}) </span></span>)} */}
-
-            {/* {this.state.fullSurah.map( name => (document.getElementsByTagName("span").getAttribute("class") === "1") ? <p> ({(name.verse_key).slice(2, name.verse_key.length)}) </p> : <span><span> {name.text_imlaei} </span> <span className={name.verse_key.slice(2, name.verse_key.length)}> ({(name.verse_key).slice(2, name.verse_key.length)}) </span></span>)}        */}
         </div>
-
         );
     }
 }
