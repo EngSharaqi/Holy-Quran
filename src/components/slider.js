@@ -6,7 +6,7 @@ class Slider extends Component{
     state = {
         fullSurah: [],
         picNum: 1,
-        // handlePickSurah: [],
+        handlePickSurah: [],
     }
    
     /*
@@ -49,9 +49,8 @@ class Slider extends Component{
     
     handlePic = (e) =>{
         this.setState({
-            Num: e.target.value
+            Num: this.state.handlePickSurah.indexOf(e.target.value)+1
         })
-        // let y = (this.state.handlePickSurah.indexOf(e.target.value)+1);
     }        
 
 
@@ -65,7 +64,7 @@ class Slider extends Component{
         document.getElementById("side-nav").classList.add("open");
     }
     render(){
-        console.log(this.state.handlePickSurah.indexOf(this.state.Num)+1)
+        // console.log(this.state.handlePickSurah.indexOf(this.state.Num)+1)
         return(
             <nav>
                 <div class="row nav">
@@ -77,10 +76,12 @@ class Slider extends Component{
                     </div>
 
                     <div class="row hide" id="side-nav">
-                        <form action={"/" + this.state.handlePickSurah.indexOf(this.state.Num)+1}>
+                    <button onClick={this.handleCloseSlider} id="close">X</button>
+                        <a class="logo" href="/">ترتيل</a>
+                        <form action={"/" + this.state.Num}>
                             <div class="col-xs-12">
-                                <button onClick={this.handleCloseSlider} id="close">X</button>
-                                <a class="logo" href="/">ترتيل</a>
+                                
+                                
                                 {this.state.fullSurah.map(name => <div><input id="2" onClick={this.handlePic} type="submit" value={name.name} /> </div>)}
 
                             </div>

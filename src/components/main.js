@@ -32,7 +32,7 @@ class Main extends Component {
     
     componentDidMount = () => {
         
-        axios.get("http://api.alquran.cloud/v1/surah/114")
+        axios.get("http://api.alquran.cloud/v1/surah/" + this.props.match.params.num)
         .then(res => {
             this.setState({
                 fullSurah: res.data.data.ayahs
@@ -53,6 +53,7 @@ class Main extends Component {
     }
    
     render (){
+        
         return (
         <div className="texts">
             <div>
