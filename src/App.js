@@ -18,6 +18,10 @@ export default class App extends Component {
           <Route path="/:num" component={Main} Num={this.state.Num} />
           <Route exact path="/" component={Main}/>
         </BrowserRouter>
+
+        <footer>
+          <h6>تصميم وبرمحة <a href="https://www.linkedin.com/in/engsharaqi" >محمد شراقي</a> </h6>
+        </footer>
       </div>
     );
   }

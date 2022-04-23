@@ -32,7 +32,8 @@ class Main extends Component {
     
     componentDidMount = () => {
         
-        axios.get("http://api.alquran.cloud/v1/surah/" + this.props.match.params.num)
+        axios.get("http://api.alquran.cloud/v1/surah/" + ((this.props.match.params.num) !== ''? this.props.match.params.num : this.props.match.params.num == "1"))
+        
         .then(res => {
             this.setState({
                 fullSurah: res.data.data.ayahs

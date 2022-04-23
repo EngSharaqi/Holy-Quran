@@ -41,3 +41,9 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+h6, h6 a {
+  margin: 50px 5px 20px;
+  text-align: center;
+  color: #aaa;
+}
