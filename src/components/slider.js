@@ -6,7 +6,7 @@ class Slider extends Component{
     state = {
         fullSurah: [],
         picNum: 1,
-        handlePickSurah: []
+        // handlePickSurah: [],
     }
    
     /*
@@ -37,29 +37,23 @@ class Slider extends Component{
         axios.get("http://api.alquran.cloud/v1/quran/quran-uthmani")
         .then(res => {
             this.setState({
-                fullSurah: res.data.data.surahs,
-                text: aya => aya.text
+                fullSurah: res.data.data.surahs
             }); 
-
-            
-            var surahName = [];
             
             this.state.fullSurah.map( name => {
                 this.state.handlePickSurah.push(name.name);
                 
             })
-            // console.log(surahName.indexOf("سُورَةُ ٱلْفَاتِحَةِ")+1);
         });
-
-        
-
     }
     
     handlePic = (e) =>{
-        let y = (this.state.handlePickSurah.indexOf(e.target.value)+1);
-        return y;
-        // console.log(y)
-    }
+        this.setState({
+            Num: e.target.value
+        })
+        // let y = (this.state.handlePickSurah.indexOf(e.target.value)+1);
+    }        
+
 
     handleCloseSlider = () => {
         document.getElementById("side-nav").classList.add("hide");
@@ -71,7 +65,7 @@ class Slider extends Component{
         document.getElementById("side-nav").classList.add("open");
     }
     render(){
-
+        console.log(this.state.handlePickSurah.indexOf(this.state.Num)+1)
         return(
             <nav>
                 <div class="row nav">
@@ -83,7 +77,7 @@ class Slider extends Component{
                     </div>
 
                     <div class="row hide" id="side-nav">
-                        <form action={"/" + this.handlePic}>
+                        <form action={"/" + this.state.handlePickSurah.indexOf(this.state.Num)+1}>
                             <div class="col-xs-12">
                                 <button onClick={this.handleCloseSlider} id="close">X</button>
                                 <a class="logo" href="/">ترتيل</a>
