@@ -99,7 +99,6 @@ button#close {
 }
 
 .row.card-info p.numberOfSurah {
-    /* color: #fff; */
     font-size: 20px;
     margin-top: 10px;
 }
@@ -108,7 +107,6 @@ div.texts { padding: 4% 3%; margin: 0 !important}
 
 p#p {
     padding: 10px;
-    /* box-shadow: 0 0 5px #cbcbcb; */
     border-radius: 10px;
     line-height: 2;
 }

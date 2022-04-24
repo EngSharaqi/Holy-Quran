@@ -9,46 +9,12 @@ class Slider extends Component{
         handlePickSurah: [],
         details: []
     }
-   
-    /*
-        {
-            number: 288,
-            text: 'وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَى اللَّهِ… كُلُّ نَفْسٍ مَا كَسَبَتْ وَهُمْ لَا يُظْلَمُونَ',
-            numberInSurah: 281,
-            juz: 3,
-            manzil: 1,
-        …}
-        hizbQuarter: 19
-        juz: 3
-        manzil: 1
-        number: 288
-        numberInSurah: 281
-        page: 47
-        ruku: 39
-        sajda: false
-        text: "وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَ
-     */
-
-     // http://api.alquran.cloud/v1/quran/quran-uthmani
-// http://api.alquran.cloud/v1/surah/2
-
     componentDidMount = () => {
-        
-        
         axios.get("http://api.alquran.cloud/v1/quran/quran-uthmani")
         .then(res => {
-            this.setState({
-                fullSurah: res.data.data.surahs,
-                // details: res.data.data.surahs.ayahs
-            }); 
+            this.setState({ fullSurah: res.data.data.surahs }); 
             
-            this.state.fullSurah.map( name => {
-                this.state.handlePickSurah.push(name.name);
-                
-            })
-            // this.state.fullSurah.map(name => (name.ayahs.map( name => console.log(name))))
-            // this.state.details.map(name => console.log(name))
-            
+            this.state.fullSurah.map( name => { this.state.handlePickSurah.push(name.name) })
         });
     }
     
@@ -73,18 +39,11 @@ class Slider extends Component{
     handleDark = () => {
         document.getElementById('light').style.display = 'inline-block';
         document.getElementById('dark').style.display = 'none';
-
         document.querySelector('body').classList.add('darkMode');
         document.querySelector('.nav').classList.add('darkMode', 'darkModeNav');
         document.querySelector('footer').classList.add('darkMode', 'darkModefooter');
         document.querySelector('body').classList.remove('lightMode');
-
         document.querySelector('#side-nav').classList.add('darkMode');
-        // document.querySelector('#cardInfo').classList.add('darkMode');
-        // #side-nav
-        // card-info
-        // document.querySelector('.card-info').classList.add('darkMode');
-
     }
     handleLight = () => {
         document.getElementById('light').style.display = 'none';
@@ -94,12 +53,8 @@ class Slider extends Component{
         document.querySelector('footer').classList.remove('darkMode', 'darkModefooter');
         document.querySelector('body').classList.remove('darkMode');
         document.querySelector('#side-nav').classList.remove('darkMode');
-
-
     }
     render(){
-        
-        // console.log(this.state.handlePickSurah.indexOf(this.state.Num)+1)
         return(
             <nav>
                 <div class="row nav">

@@ -3,57 +3,15 @@ import axios from 'axios';
 import './main.css';
 
 class Main extends Component {
-    state = {
-        fullSurah: []
-    }
-   
-    /*
-        {
-            number: 288,
-            text: 'وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَى اللَّهِ… كُلُّ نَفْسٍ مَا كَسَبَتْ وَهُمْ لَا يُظْلَمُونَ',
-            numberInSurah: 281,
-            juz: 3,
-            manzil: 1,
-        …}
-        hizbQuarter: 19
-        juz: 3
-        manzil: 1
-        number: 288
-        numberInSurah: 281
-        page: 47
-        ruku: 39
-        sajda: false
-        text: "وَاتَّقُوا يَوْمًا تُرْجَعُونَ فِيهِ إِلَ
-     */
+    state = { fullSurah: [] } 
 
-     // http://api.alquran.cloud/v1/quran/quran-uthmani
-// http://api.alquran.cloud/v1/surah/2
-
-    
     componentDidMount = () => {
-        
         axios.get("http://api.alquran.cloud/v1/surah/" + ((this.props.match.params.num) !== undefined ? this.props.match.params.num : "1"))
-        .then(res => {
-            this.setState({
-                fullSurah: res.data.data.ayahs
-            }); 
-            // hizbQuarter: 1
-            // juz: 1
-            // manzil: 1
-            // number: 1
-            // numberInSurah: 1
-            // page: 1
-            // ruku: 1
-            // sajda: false
-            // text: "﻿بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
-            // this.state.fullSurah.map( name => console.log(name.text))
-
-        });
-        // console.log(this.props.match.params.num)
-document.getElementById('p').style.minHeight = window.innerHeight + 'px'
+        .then(res => { this.setState({ fullSurah: res.data.data.ayahs }) });
+        document.getElementById('p').style.minHeight = window.innerHeight + 'px'
     }
+    
     render (){
-
         return (
         <div className="texts">
             <div>
