@@ -32,8 +32,7 @@ class Main extends Component {
     
     componentDidMount = () => {
         
-        axios.get("http://api.alquran.cloud/v1/surah/" + ((this.props.match.params.num) !== ''? this.props.match.params.num : this.props.match.params.num == "1"))
-        
+        axios.get("http://api.alquran.cloud/v1/surah/" + ((this.props.match.params.num) !== undefined ? this.props.match.params.num : "1"))
         .then(res => {
             this.setState({
                 fullSurah: res.data.data.ayahs
@@ -48,9 +47,10 @@ class Main extends Component {
             // sajda: false
             // text: "﻿بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
             // this.state.fullSurah.map( name => console.log(name.text))
-            
-        });
 
+        });
+        // console.log(this.props.match.params.num)
+document.getElementById('p').style.minHeight = window.innerHeight + 'px'
     }
     render (){
 

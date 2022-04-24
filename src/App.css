@@ -43,7 +43,20 @@
 }
 
 h6, h6 a {
-  margin: 50px 5px 20px;
   text-align: center;
   color: #aaa;
+  font-size: 14px;
+  font-weight: 400;
+  direction: ltr;
+  font-family: sans-serif;
+  margin: 0%
 }
+
+h6 a:hover{ color: #fff }
+footer {
+  background: #002400;
+  margin: 0;
+  padding: 30px 10px 15px;
+}
+
+i.fa-solid.fa-heart { font-size: 12px }

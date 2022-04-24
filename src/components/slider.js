@@ -46,7 +46,7 @@ class Slider extends Component{
                 this.state.handlePickSurah.push(name.name);
                 
             })
-            this.state.fullSurah.map(name => (name.ayahs.map( name => console.log(name))))
+            // this.state.fullSurah.map(name => (name.ayahs.map( name => console.log(name))))
             // this.state.details.map(name => console.log(name))
             
         });
@@ -67,10 +67,27 @@ class Slider extends Component{
     handleOpenSlider = () => {
         document.getElementById("side-nav").classList.remove("hide");
         document.getElementById("side-nav").classList.add("open");
-        // document.getElementById("side-nav").style("min-height", "window.innerHeight");
         document.getElementById('side-nav').style.minHeight = window.innerHeight + 'px'
     }
 
+    handleDark = () => {
+        document.getElementById('light').style.display = 'inline-block';
+        document.getElementById('dark').style.display = 'none';
+
+        document.querySelector('body').classList.add('darkMode');
+        document.querySelector('.nav').classList.add('darkMode', 'darkModeNav');
+        document.querySelector('footer').classList.add('darkMode', 'darkModefooter');
+        document.querySelector('body').classList.remove('lightMode');
+    }
+    handleLight = () => {
+        document.getElementById('light').style.display = 'none';
+        document.getElementById('dark').style.display = 'inline-block';
+        document.querySelector('body').classList.add('lightMode');
+        document.querySelector('.nav').classList.remove('darkMode', 'darkModeNav');
+        document.querySelector('footer').classList.remove('darkMode', 'darkModefooter');
+        document.querySelector('body').classList.remove('darkMode');
+
+    }
     render(){
         
         // console.log(this.state.handlePickSurah.indexOf(this.state.Num)+1)
@@ -81,12 +98,11 @@ class Slider extends Component{
                         <div class="row">
                             <div class="col logo">ترتيل</div>
                             <div class="col" id="slider-action">
-                                <div onClick={this.handleOpenSlider} className='row sideNav'>
+                                <div className='row sideNav'>
                                     <div className='col-12 sideNavBurger'>
-                                        <i className="fa-solid fa-bars" id="burgerNav"></i>
-                                    </div>
-                                    <div className='col-12 sideNavText'>
-                                        تصفح السور
+                                        <i className="fa-solid fa-moon" id='dark' onClick={this.handleDark}></i>
+                                        <i class="fa-regular fa-sun" id='light' onClick={this.handleLight}></i>
+                                        <i  onClick={this.handleOpenSlider} className="fa-solid fa-bars" id="burgerNav"></i>
                                     </div>
                                 </div>
                             </div>

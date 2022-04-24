@@ -20,7 +20,7 @@ export default class App extends Component {
         </BrowserRouter>
 
         <footer>
-          <h6>تصميم وبرمحة <a href="https://www.linkedin.com/in/engsharaqi" >محمد شراقي</a> </h6>
+          <h6># Created with <i className="fa-solid fa-heart"></i> by <a href="https://www.linkedin.com/in/engsharaqi" >Mohamed Sharaqi</a> </h6>
         </footer>
       </div>
     );

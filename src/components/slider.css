@@ -1,5 +1,5 @@
 *{
-    transition: .5s all ease-in-out;
+    /* transition: .5s all ease-in-out; */
     outline: 0
 }
 
@@ -68,9 +68,7 @@ a.logo{
 
 .col-12.sideNavText{font-size: 12px; margin-top: -3%; display: none }
 
-.col-12.sideNavBurger { margin-left: 18%; margin-top: 6% }
-
-.sideNav:hover .col-12.sideNavBurger{ margin-top: -1% }
+.col-12.sideNavBurger { margin-top: 8% }
 
 .sideNav:hover .col-12.sideNavText{ display: block }
 
@@ -106,11 +104,38 @@ button#close {
     margin-top: 10px;
 }
 
-div.texts { padding: 4% 3%; background: #f1fff1; margin: 0 !important}
+div.texts { padding: 4% 3%; margin: 0 !important}
 
 p#p {
-    padding: 20px;
-    box-shadow: 0 0 5px #cbcbcb;
+    padding: 10px;
+    /* box-shadow: 0 0 5px #cbcbcb; */
     border-radius: 10px;
     line-height: 2;
+}
+
+nav{
+    width: 100%;
+    margin: 0 auto;
+    height: 100%
+
+}
+.nav {
+    background: #027002;
+    padding: 0% 0%;
+    color: #fff;
+}
+i.fa-sun{ display: none }
+.darkMode{
+    background: #000f24;
+    color: #fff;
+    transition: 0.1s all ease-in !important
+}
+
+.lightMode {
+    background: #f1fff1;
+    transition: 0.1s all ease-in !important
+}
+
+i#dark, i#light {
+    margin-left: 10px;
 }
