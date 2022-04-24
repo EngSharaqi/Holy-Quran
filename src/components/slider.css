@@ -1,5 +1,6 @@
 *{
     transition: .5s all ease-in-out;
+    outline: 0
 }
 
 .slider{
@@ -45,11 +46,11 @@
     background: transparent;
     display: block;
     border: 0;
-    padding: 5px;
+    padding: 10px 5px 5px;
 }
 
 #side-nav input[type="submit"]:hover {
-    background: #004a00;
+    background: #002800;
     border-radius: 10px;
 }
 
@@ -82,4 +83,34 @@ button#close {
     font-size: 30px;
     font-weight: bold;
     text-align: left;
+}
+
+.row.card-info {
+    background: #003e00;
+    margin: 7px;
+    padding: 15px 5px 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.row.card-info p {
+    color: #b1b1b1;
+    margin: 2px;
+    font-size: 15px;
+    text-align: center
+}
+
+.row.card-info p.numberOfSurah {
+    /* color: #fff; */
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+div.texts { padding: 4% 3%; background: #f1fff1; margin: 0 !important}
+
+p#p {
+    padding: 20px;
+    box-shadow: 0 0 5px #cbcbcb;
+    border-radius: 10px;
+    line-height: 2;
 }

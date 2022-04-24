@@ -101,13 +101,13 @@ class Slider extends Component{
                         <a class="logo" href="/">ترتيل</a>
                         <form action={"/" + this.state.Num}>
                             <div class="col-xs-12">
-                                {this.state.fullSurah.map(name => <div>
-                                    <div className="row">
+                                {this.state.fullSurah.map(name => 
+                                    <div className="row card-info" onClick={this.handlePic}>
                                         <div className='col-12'>
-                                            <input id="2" onClick={this.handlePic} type="submit" value={name.name} />
+                                            <input id="2" type="submit" value={name.name} />
                                         </div>
                                         <div className="col-12">
-                                            <div className="row">
+                                            <div className="row info">
                                                 <div className='col'>
                                                     <p className='numberOfSurah'> {name.number} </p>
                                                     <p>رقم السورة</p>
@@ -119,7 +119,7 @@ class Slider extends Component{
                                             </div>
                                         </div>
                                     </div>
-                                </div>)}
+                                )}
                             </div>
                         </form>
                     </div>
