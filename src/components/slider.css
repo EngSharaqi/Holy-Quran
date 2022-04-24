@@ -1,3 +1,7 @@
+*{
+    transition: .5s all ease-in-out;
+}
+
 .slider{
     position: relative;
     background: #000;
@@ -12,7 +16,8 @@
 
 .logo{
     text-align: right;
-    font-size: 25px
+    font-size: 30px;
+    margin-bottom: 3%
 }
 
 .nav {
@@ -54,4 +59,27 @@ a.logo{
     color: #fff;
     width: 100%;
     padding: 5% 0
+}
+
+.sideNav{ text-align: left }
+
+.col-12.sideNavText, .col-12.sideNavBurger { text-align: left; cursor: pointer }
+
+.col-12.sideNavText{font-size: 12px; margin-top: -3%; display: none }
+
+.col-12.sideNavBurger { margin-left: 18%; margin-top: 6% }
+
+.sideNav:hover .col-12.sideNavBurger{ margin-top: -1% }
+
+.sideNav:hover .col-12.sideNavText{ display: block }
+
+.closeSign { text-align: left }
+
+button#close {
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
 }

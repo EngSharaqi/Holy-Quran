@@ -7,6 +7,7 @@ class Slider extends Component{
         fullSurah: [],
         picNum: 1,
         handlePickSurah: [],
+        details: []
     }
    
     /*
@@ -37,13 +38,17 @@ class Slider extends Component{
         axios.get("http://api.alquran.cloud/v1/quran/quran-uthmani")
         .then(res => {
             this.setState({
-                fullSurah: res.data.data.surahs
+                fullSurah: res.data.data.surahs,
+                // details: res.data.data.surahs.ayahs
             }); 
             
             this.state.fullSurah.map( name => {
                 this.state.handlePickSurah.push(name.name);
                 
             })
+            this.state.fullSurah.map(name => (name.ayahs.map( name => console.log(name))))
+            // this.state.details.map(name => console.log(name))
+            
         });
     }
     
@@ -62,32 +67,61 @@ class Slider extends Component{
     handleOpenSlider = () => {
         document.getElementById("side-nav").classList.remove("hide");
         document.getElementById("side-nav").classList.add("open");
+        // document.getElementById("side-nav").style("min-height", "window.innerHeight");
+        document.getElementById('side-nav').style.minHeight = window.innerHeight + 'px'
     }
+
     render(){
+        
         // console.log(this.state.handlePickSurah.indexOf(this.state.Num)+1)
         return(
             <nav>
                 <div class="row nav">
                     <div class="container">
                         <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 logo">ترتيل</div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="slider-action" onClick={this.handleOpenSlider}>تصفح السور</div>
+                            <div class="col logo">ترتيل</div>
+                            <div class="col" id="slider-action">
+                                <div onClick={this.handleOpenSlider} className='row sideNav'>
+                                    <div className='col-12 sideNavBurger'>
+                                        <i className="fa-solid fa-bars" id="burgerNav"></i>
+                                    </div>
+                                    <div className='col-12 sideNavText'>
+                                        تصفح السور
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="row hide" id="side-nav">
-                    <button onClick={this.handleCloseSlider} id="close">X</button>
+                        <div class='container'>
+                            <div class='closeSign'>
+                                <button onClick={this.handleCloseSlider} id="close"><i className="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
                         <a class="logo" href="/">ترتيل</a>
                         <form action={"/" + this.state.Num}>
                             <div class="col-xs-12">
-                                
-                                
-                                {this.state.fullSurah.map(name => <div><input id="2" onClick={this.handlePic} type="submit" value={name.name} /> </div>)}
-
+                                {this.state.fullSurah.map(name => <div>
+                                    <div className="row">
+                                        <div className='col-12'>
+                                            <input id="2" onClick={this.handlePic} type="submit" value={name.name} />
+                                        </div>
+                                        <div className="col-12">
+                                            <div className="row">
+                                                <div className='col'>
+                                                    <p className='numberOfSurah'> {name.number} </p>
+                                                    <p>رقم السورة</p>
+                                                </div>
+                                                <div className='col'>
+                                                    <p className='numberOfSurah'> {(name.revelationType) === 'Meccan' ? "مكية" : "مدنية"} </p>
+                                                    <p>النوع</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>)}
                             </div>
-                            {/* <div class="" id="slider-action">تصفح السور</div> */}
                         </form>
-
                     </div>
                 </div>
             </nav>

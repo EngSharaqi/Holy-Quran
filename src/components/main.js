@@ -52,13 +52,12 @@ class Main extends Component {
         });
 
     }
-   
     render (){
-        
+
         return (
         <div className="texts">
             <div>
-                <p>{ this.state.fullSurah.map( text => <span><span> {text.text} </span> <span> ({text.numberInSurah}) </span></span>) }</p>
+                <p id='p'>{ this.state.fullSurah.map( text => <span><span> {text.text} </span> <span> ({text.numberInSurah}) </span></span>) }</p>
             </div>
         </div>
         );
