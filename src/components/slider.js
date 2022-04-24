@@ -78,6 +78,13 @@ class Slider extends Component{
         document.querySelector('.nav').classList.add('darkMode', 'darkModeNav');
         document.querySelector('footer').classList.add('darkMode', 'darkModefooter');
         document.querySelector('body').classList.remove('lightMode');
+
+        document.querySelector('#side-nav').classList.add('darkMode');
+        // document.querySelector('#cardInfo').classList.add('darkMode');
+        // #side-nav
+        // card-info
+        // document.querySelector('.card-info').classList.add('darkMode');
+
     }
     handleLight = () => {
         document.getElementById('light').style.display = 'none';
@@ -86,6 +93,8 @@ class Slider extends Component{
         document.querySelector('.nav').classList.remove('darkMode', 'darkModeNav');
         document.querySelector('footer').classList.remove('darkMode', 'darkModefooter');
         document.querySelector('body').classList.remove('darkMode');
+        document.querySelector('#side-nav').classList.remove('darkMode');
+
 
     }
     render(){
@@ -118,7 +127,7 @@ class Slider extends Component{
                         <form action={"/" + this.state.Num}>
                             <div class="col-xs-12">
                                 {this.state.fullSurah.map(name => 
-                                    <div className="row card-info" onClick={this.handlePic}>
+                                    <div className="row card-info" id="cardInfo" onClick={this.handlePic}>
                                         <div className='col-12'>
                                             <input id="2" type="submit" value={name.name} />
                                         </div>

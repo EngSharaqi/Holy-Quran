@@ -28,7 +28,7 @@
     position: relative
 }
 
-#side-nav{
+.open{
     position: absolute;
     top: 0;
     left: 0%;
@@ -38,18 +38,18 @@
     padding: 3%;
 }
 
-#side-nav, #side-nav div[class="col-xs-12"], #side-nav input[type="submit"]{ width: 100%; text-align: center; color: #fff}
+.open, .open div[class="col-xs-12"], .open input[type="submit"]{ width: 100%; text-align: center; color: #fff}
 
-#side-nav div[class="col-xs-12"]{ width: 90%; margin: 0 auto }
+.open div[class="col-xs-12"]{ width: 90%; margin: 0 auto }
 
-#side-nav input[type="submit"]{
+.open input[type="submit"]{
     background: transparent;
     display: block;
     border: 0;
     padding: 10px 5px 5px;
 }
 
-#side-nav input[type="submit"]:hover {
+.open input[type="submit"]:hover {
     background: #002800;
     border-radius: 10px;
 }
@@ -137,5 +137,20 @@ i.fa-sun{ display: none }
 }
 
 i#dark, i#light {
-    margin-left: 10px;
+    margin-left: 25px;
+}
+
+.darkModeNav {
+    box-shadow: 0 0 3px #0049b3;
+}
+
+.darkModefooter { background: #000a1a }
+
+div#side-nav.darkMode form div.card-info {
+    background: transparent;
+    box-shadow: 0 0 3px #0049b3;
+}
+
+div.darkMode input[type="submit"]:hover {
+    background: #010c1c;
 }
